@@ -59,7 +59,7 @@ if (!(num >= 14 && num <= 90)) {
 } else {
   alert('не верно');
 }
-*/
+
 let userPass;
 let userName = prompt("Ваше имя", "");
 if (userName === null) {
@@ -77,3 +77,13 @@ if (userPass === null) {
 } else {
   alert("Здравствуйте!");
 }
+
+*/
+
+let firstName = prompt('First Name','')
+  , lastName = prompt("Last Name", "")
+  , nickName = prompt("NickName", "");
+
+alert(firstName ?? lastName ?? nickName ?? "Anonim");
+
+
