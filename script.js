@@ -78,7 +78,7 @@ if (userPass === null) {
   alert("Здравствуйте!");
 }
 
-*/
+
 
 let firstName = prompt('First Name','')
   , lastName = prompt("Last Name", "")
@@ -87,3 +87,96 @@ let firstName = prompt('First Name','')
 alert(firstName ?? lastName ?? nickName ?? "Anonim");
 
 
+
+let i = prompt("Enter number", "");
+i = +i;
+while (i) {
+  i = prompt("Enter number", "");
+  i = +i;
+}
+
+
+let i;
+do {
+  i = prompt("Enter number", "");
+  i = Number(i);
+} while (i);
+alert(i);
+
+
+
+for (let i = prompt("Enter number", ""); i; i = prompt("Enter number", ""), i = +i){
+
+}
+
+
+let sum = 0;
+
+while (true) {
+
+  let value = +prompt("Введите число", '');
+  if (value !== 0) {
+  if (!value) break;
+  }
+  sum += value;
+}
+alert( 'Сумма: ' + sum );
+
+
+let sum = 0;
+let value = prompt("Введите число", '');
+while (true) {
+  if (value == 0) continue;
+  let value = +prompt("Введите число", '');
+  if (!value) break;
+  sum += value;
+}
+alert( 'Сумма: ' + sum );
+
+let sum = 0;
+let value = prompt("Введите число", '');
+first: for (;;value = prompt("Введите число", '')) {
+  //if (value == "0" || value == "00" || value == "000" || value == "0000") continue;
+  for (let zero = ""; value !== zero;) {
+    zero = zero + "0";  
+  if (value === zero) continue first;
+  console.log(zero);
+  if (zero === "00000000000000000000") break;
+  }
+  value = +value;
+  if (!value) break;
+  sum += value;
+}
+alert( 'Сумма: ' + sum );
+
+
+for (let num = 1; num <= 10; ++num) {
+  if(num % 2 == 1) continue;
+  alert(num);
+}
+
+
+let i = 0;
+while (i < 3) {
+  alert( `number ${i}!`);
+  i++;
+}
+
+
+for (let num = prompt("Введите число больше ста", ""); num <= 100; num = prompt("Введите число больше ста ещё раз", "") ) {
+  if( num === null) break;
+}
+
+*/
+let i = 2;
+first:
+for (let n = prompt("Enter number",""); i <= n; i++ ) {
+  for(let y = 2; y < i; y++) {
+    if( i % y == 0) {
+      continue first;
+    }
+  }
+  alert(i);
+    
+  
+}
