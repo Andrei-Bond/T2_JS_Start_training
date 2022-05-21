@@ -190,7 +190,7 @@ if (browser === "Edge") {
   alert( 'We hope that this page looks ok!' );
 }
 
-*/
+
 
 const number = +prompt('Введите число между 0 и 3', '');
 switch(number){
@@ -206,4 +206,34 @@ switch(number){
   case 3:
    alert('Вы ввели число 2, а может и 3');
    break;
+}
+
+
+
+function min(a,b) {
+  return (a < b) ? a : b;
+}
+
+let a = prompt("","");
+let b = prompt("","");
+alert(min(a,b));
+
+*/
+
+let x1 = prompt("Введите число","");
+let n1 = prompt("Введите степень","");
+
+function pow(x,n){
+  let proizv = x;
+  
+  for(let counter = 1;counter < n;++counter) {
+    proizv = proizv * x;
+    if (counter > n) break;
+  }
+ return proizv;
+}
+if (n1 < 1) {
+  alert("Wrong");
+} else {
+alert(pow(x1,n1));
 }
