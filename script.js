@@ -237,10 +237,23 @@ if (n1 < 1) {
 } else {
 alert(pow(x1,n1));
 }
+
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Вы согласны?",
+  function() { alert("Вы согласились."); },
+  function() { alert("Вы отменили выполнение."); }
+);
 */
-console.log;
-console.log; 
-djebvs
-hshhs
-SVGPathSegCurvetoCubicSmoothRel
-hshhs
+
+let ask = (question, yes, no) => {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask("Вы согланы?", () => alert("Вы согласились."), () => alert("Вы отменили выполнение.") );
