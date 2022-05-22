@@ -218,7 +218,7 @@ let a = prompt("","");
 let b = prompt("","");
 alert(min(a,b));
 
-*/
+
 
 let x1 = prompt("Введите число","");
 let n1 = prompt("Введите степень","");
@@ -237,3 +237,5 @@ if (n1 < 1) {
 } else {
 alert(pow(x1,n1));
 }
+*/
+console.log;
