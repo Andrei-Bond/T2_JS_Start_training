@@ -240,3 +240,7 @@ alert(pow(x1,n1));
 */
 console.log;
 console.log; 
+djebvs
+hshhs
+SVGPathSegCurvetoCubicSmoothRel
+hshhs
