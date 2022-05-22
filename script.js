@@ -237,3 +237,6 @@ if (n1 < 1) {
 } else {
 alert(pow(x1,n1));
 }
+*/
+console.log;
+console.log; 
