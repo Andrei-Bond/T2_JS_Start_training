@@ -2,6 +2,11 @@
 
 
 describe("pow", function() {
+    before(() => alert("Тестирование началось – перед тестами"));
+    after(() => alert("Тестирование закончилось – после всех тестов"));
+
+    beforeEach(() => alert("Перед тестом – начинаем выполнять тест"));
+    afterEach(() => alert("После теста – заканчиваем выполнение теста"));
 
     describe("Возводит x в степень 3", function() {
         function makeTest3(x) {
