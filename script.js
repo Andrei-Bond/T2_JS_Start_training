@@ -204,8 +204,8 @@ switch(number){
   
   case 2:
   case 3:
-   alert('Вы ввели число 2, а может и 3');
-   break;
+    alert('Вы ввели число 2, а может и 3');
+    break;
 }
 
 
@@ -230,7 +230,7 @@ function pow(x,n){
     proizv = proizv * x;
     if (counter > n) break;
   }
- return proizv;
+  return proizv;
 }
 if (n1 < 1) {
   alert("Wrong");
@@ -243,13 +243,12 @@ function ask(question, yes, no) {
   if (confirm(question)) yes()
   else no();
 }
-
 ask(
   "Вы согласны?",
   function() { alert("Вы согласились."); },
   function() { alert("Вы отменили выполнение."); }
 );
-*/
+
 
 let ask = (question, yes, no) => {
   if (confirm(question)) yes()
@@ -257,3 +256,17 @@ let ask = (question, yes, no) => {
 }
 
 ask("Вы согланы?", () => alert("Вы согласились."), () => alert("Вы отменили выполнение.") );
+
+*/
+
+function pow(x, n) {
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+mocha.run(); //запускаем тесты!
