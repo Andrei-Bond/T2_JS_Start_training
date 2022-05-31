@@ -311,7 +311,7 @@ function calcSum(obj) {
 }
 calcSum(salaries);
 alert(sum);
-*/
+
 
 let menu = {
   width: 200,
@@ -335,3 +335,66 @@ multiplyNumeric(menu);
 for (let key in menu) {
 alert(menu[key]);
 }
+
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+let clone = {};
+
+for(let key in menu) {
+  clone[key] = menu[key];
+}
+for (let key in clone) {
+  alert(clone[key]);
+}
+
+
+
+
+
+// Функция глубокого клонирования объекта
+*/
+
+let user = {
+  name: "Иван",
+  sizes: {
+    height: 182,
+    width: 50,
+    visual: {
+      w:74,
+      h:76,
+    }
+  }
+}
+
+let clone = {};
+function deepCopyObj(objFrom, objIn) {
+  let key;
+  for( key in objFrom) {
+    if (typeof(objFrom[key]) == "object") {
+      objIn[key] = {};
+      deepCopyObj(objFrom[key], objIn[key])
+    } else {
+      objIn[key] = objFrom[key];
+    }
+  }
+} 
+
+deepCopyObj(user, clone);
+
+alert( clone["name"]);
+
+alert(user.name);
+
+alert( user['sizes'] == clone['sizes']);
+
+alert(clone.sizes.height);
+
+alert(clone.sizes.visual.h);
+
+
+
+
