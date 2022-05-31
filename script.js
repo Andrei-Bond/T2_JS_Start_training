@@ -270,7 +270,7 @@ function pow(x, n) {
 
 mocha.run(); //запускаем тесты!
 
-*/
+
 
 let user = {};
 user.name = "John";
@@ -278,3 +278,60 @@ user.surname = "Smith";
 delete user.name;
 
 alert(user.surname);
+
+
+function isEmpty(x) {
+  for (let key in x) {
+      return false;
+    }
+      return true;
+    
+}
+let schedule = {};
+
+alert( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+alert( isEmpty(schedule) ); // false
+
+
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130 
+}
+let sum = 0;
+function calcSum(obj) {
+  for (let key in obj) {
+    sum = sum + salaries[key];
+    }
+  return sum;
+}
+calcSum(salaries);
+alert(sum);
+*/
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+
+function multiplyNumeric(menu) {
+  for (let key in menu) {
+  if (isNaN(menu[key])) {
+    continue;
+  } else {
+    menu[key] *= 2;
+  }
+  }}
+
+
+multiplyNumeric(menu);
+
+for (let key in menu) {
+alert(menu[key]);
+}
