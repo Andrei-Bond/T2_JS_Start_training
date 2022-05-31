@@ -257,7 +257,6 @@ let ask = (question, yes, no) => {
 
 ask("Вы согланы?", () => alert("Вы согласились."), () => alert("Вы отменили выполнение.") );
 
-*/
 
 function pow(x, n) {
   let result = 1;
@@ -270,3 +269,12 @@ function pow(x, n) {
 }
 
 mocha.run(); //запускаем тесты!
+
+*/
+
+let user = {};
+user.name = "John";
+user.surname = "Smith";
+delete user.name;
+
+alert(user.surname);
