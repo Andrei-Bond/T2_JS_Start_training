@@ -421,7 +421,7 @@ let user = {
 };
 
 user.sayHi(); // Илья
-*/
+
 
 
 
@@ -432,3 +432,29 @@ let user = {
 };
 
 alert( user.ref().name );
+
+
+*/
+
+
+
+
+let calculator = {
+  read() {
+    calculator.num1 = prompt('Введите первое число','');
+    calculator.num2 = prompt('Введите  второе число','');
+  },
+  sum() {
+    return (+this.num1 + +this.num2);
+  },
+  mul() {
+    return (this.num1 * this.num2);
+  },
+};
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul());
+
+
+
