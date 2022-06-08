@@ -356,7 +356,7 @@ for (let key in clone) {
 
 
 // Функция глубокого клонирования объекта
-*/
+
 
 let user = {
   name: "Иван",
@@ -398,3 +398,37 @@ alert(clone.sizes.visual.h);
 
 
 
+let user = {
+  name: "Джон",
+  hi() { alert(this.name); },
+  bye() { alert("Пока"); }
+};
+
+//user.hi(); // Джон (простой вызов метода работает хорошо)
+
+// теперь давайте попробуем вызывать user.hi или user.bye
+// в зависимости от имени пользователя user.name
+(user.name == "Джон" ? user.hi() : user.bye()); // Ошибка!
+
+
+
+let user = {
+  firstName: "Илья",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
+
+user.sayHi(); // Илья
+*/
+
+
+
+
+let user = {
+  name: "Джон",
+  ref() { return this; },
+};
+
+alert( user.ref().name );
