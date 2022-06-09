@@ -457,7 +457,7 @@ alert(calculator.sum());
 alert(calculator.mul());
 
 
-*/
+
 
 
 
@@ -477,3 +477,79 @@ let ladder = {
 };
 
 ladder.up().up().down().showStep(); // 1
+
+
+*
+function SmallUser() {
+
+  this.name = "Вася";
+
+  return; // <-- возвращает this
+}
+
+alert( new SmallUser().name );  // Вася
+
+
+
+
+function User(name) {
+  // this = {};  (неявно)
+
+  // добавляет свойства к this
+  this.name = name;
+  this.isAdmin = false;
+
+  // return this;  (неявно)
+}
+let user = new User("Vasya");
+alert(user.name);
+
+
+
+let obj = {
+  name: null,
+};
+
+function A() {
+  return obj;
+}
+function B() {
+  return obj;
+}
+let a = new A;
+let b = new B;
+alert( a == b );
+
+
+
+
+function Calculator() {
+  this.read = function() {
+    this.num1 = prompt("Введите первое число","");
+    this.num2 = prompt("Введите второе число","");
+  };
+  this.sum = function() {return (+this.num1 + +this.num2)};
+  this.mul = function() {return (this.num1 * this.num2)};
+}
+
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
+
+*/
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+  this.read = function() {
+    this.value += +prompt("Number", 0);
+  }
+}
+
+let accumulator = new Accumulator(1); // начальное значение 1
+
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+
+alert(accumulator.value); // выведет сумму этих значений
