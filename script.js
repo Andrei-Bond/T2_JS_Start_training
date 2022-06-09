@@ -538,7 +538,7 @@ calculator.read();
 alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
 
-*/
+
 
 function Accumulator(startingValue) {
   this.value = startingValue;
@@ -553,3 +553,16 @@ accumulator.read(); // прибавит ввод prompt к текущему зн
 accumulator.read(); // прибавит ввод prompt к текущему значению
 
 alert(accumulator.value); // выведет сумму этих значений
+
+
+
+let user = {
+  address: {
+    street: 1,
+  },
+}; // пользователь без свойства "address"
+
+alert(user.address.street);
+
+*/
+
