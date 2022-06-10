@@ -566,3 +566,19 @@ alert(user.address.street);
 
 */
 
+let sym = Symbol("Someone symbol");
+
+let obj = {
+  name: 'Vasya',
+  year: 1990,
+  [sym]: "stuff",
+}
+
+console.log(obj[sym]);
+
+sym = Symbol("Someone symbol");
+//console.log(obj);
+console.log(Reflect.ownKeys(obj));
+console.log(Object.getOwnPropertySymbols(obj));
+console.log(obj[sym]);
+
