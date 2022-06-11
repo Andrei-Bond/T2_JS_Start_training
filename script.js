@@ -1,4 +1,4 @@
-"use strict"
+  "use strict"
 /*let num = prompt('enter number', 5);
 
 function fac(num2){
@@ -572,13 +572,20 @@ let obj = {
   name: 'Vasya',
   year: 1990,
   [sym]: "stuff",
+  toString() {
+    return `name: ${this.name}`;
+  },
+  valueOf () {
+    return this.year;
+  },
 }
 
-console.log(obj[sym]);
+//console.log(obj[sym]);
 
-sym = Symbol("Someone symbol");
+//sym = Symbol("Someone symbol");
 //console.log(obj);
-console.log(Reflect.ownKeys(obj));
-console.log(Object.getOwnPropertySymbols(obj));
-console.log(obj[sym]);
+//console.log(Reflect.ownKeys(obj));
+//console.log(Object.getOwnPropertySymbols(obj));
+//console.log(obj[sym]);
 
+alert(+obj);
