@@ -591,9 +591,26 @@ let obj = {
 alert(+obj);
 
 
-*/
+
 
 
 let str ="Привет";
 str.test = 5;
 alert(str.test);
+
+
+
+
+alert(parseFloat(prompt("Enter number one","")) + parseFloat(prompt("Enter number two","")));
+
+*/
+let num; 
+function readNumber() {
+  num = prompt("Enter number","");
+  if( isNaN(num) ) {
+    readNumber();
+  } else {
+    return num; 
+  }
+}
+readNumber();
