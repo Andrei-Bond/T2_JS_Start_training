@@ -603,14 +603,60 @@ alert(str.test);
 
 alert(parseFloat(prompt("Enter number one","")) + parseFloat(prompt("Enter number two","")));
 
-*/
+
 let num; 
 function readNumber() {
   num = prompt("Enter number","");
   if( isNaN(num) ) {
-    readNumber();
+    return readNumber();
+  } else if(num === null) {
+    return num;
+  } else if(num === "") {
+    return null;
   } else {
-    return num; 
+   return +num; 
   }
 }
-readNumber();
+let test = readNumber();
+console.log(test);
+console.log(num);
+
+
+
+
+let randomNum = Math.random();
+function random(min, max) {
+  if(randomNum >= min && randomNum <max) {
+    return randomNum;
+  } else if(randomNum < min) {
+    randomNum *= 10;
+    return random(min, max)
+  } else {
+    randomNum = Math.random();
+    return random(min, max);
+  }
+}
+
+
+function random(min, max) {
+  let randomNum = Math.random()
+  while (!(randomNum >= min && randomNum <max))  { 
+    if(randomNum < min) {
+      randomNum *= 10;
+    } else  {
+    randomNum = Math.random();
+    }
+    
+  }
+  return randomNum;
+}
+*/
+
+
+function random(min, max) {
+  let randomNum = min - 0.5 + Math.random() * (max - min + 1);
+  randomNum = Math.floor(randomNum);
+  return randomNum;
+}
+console.log(random(3, 7));
+
