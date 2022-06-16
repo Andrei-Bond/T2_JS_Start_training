@@ -650,7 +650,7 @@ function random(min, max) {
   }
   return randomNum;
 }
-*/
+
 
 
 function random(min, max) {
@@ -660,3 +660,34 @@ function random(min, max) {
 }
 console.log(random(3, 7));
 
+
+
+alert( '𝒳'.charCodeAt(0).toString(2) ); // d835, между 0xd800 и 0xdbff
+alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3, между 0xdc00 и 0xdfff
+
+
+
+function ucFirst(str) {
+  if (str !== "") {
+    return str = str[0].toUpperCase() + str.slice(1);
+  } else {
+    return "";
+  }
+}
+alert(ucFirst(""));
+
+
+
+function checkSpam(str) {
+  if (str.toLowerCase().includes("viagra") || str.toLowerCase().includes("xxx")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+alert(checkSpam('buy ViAgRA now'));
+alert(checkSpam('free xxxxx'));
+alert(checkSpam("innocent rabbit"));
+
+*/
