@@ -662,52 +662,77 @@ console.log(random(3, 7));
 
 
 
-alert( '𝒳'.charCodeAt(0).toString(2) ); // d835, между 0xd800 и 0xdbff
-alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3, между 0xdc00 и 0xdfff
 
 
 
-function ucFirst(str) {
-  if (str !== "") {
-    return str = str[0].toUpperCase() + str.slice(1);
-  } else {
-    return "";
-  }
-}
-alert(ucFirst(""));
+let arrNum =[];
 
-
-
-function checkSpam(str) {
-  if (str.toLowerCase().includes("viagra") || str.toLowerCase().includes("xxx")) {
-    return true;
-  } else {
-    return false;
-  }
+function random(min, max) {
+  let randomNum = min + Math.random() * (max - min + 1 );
+  randomNum = Math.floor(randomNum);
+  return randomNum;
 }
 
-alert(checkSpam('buy ViAgRA now'));
-alert(checkSpam('free xxxxx'));
-alert(checkSpam("innocent rabbit"));
+
+let arr = ['Яблоко', 'Груша', 'Апельсин'];
+arr.push('Вишня');
+arr.unshift('Слива');
+console.log(arr);
 
 
-
-
-function truncate(str, maxlength) {
-  if (str.length <= maxlength ) {
-    return str;
+for(let i = random(0, (arr.length - 1)); arrNum.length != arr.length; i = random(0, (arr.length - 1))) {
+  
+  if (arrNum.indexOf(i) + 1) {
+    continue;
   } else {
-    return `${str.slice(0, maxlength-1)}…`;
+    arrNum.push(i);
+    console.log(arr[i]);
   }
-}
+};
 
-alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
+arr.length = 10;
 
-alert(truncate("Всем привет!", 20));
+arr[7] = undefined;
+arr[15] = null; 
+console.log(arr);
+
+
+
+
+
+let styles = ['Джаз', 'Блюз'];
+console.log(styles);
+styles.push('Рок-н-ролл');
+console.log(styles);
+let midNumArr = Math.round(styles.length/2);
+styles[midNumArr-1] = 'Классика';
+console.log(styles);
+alert(styles.shift());
+console.log(styles);
+styles.unshift('Рэп', 'Рэгги');
+console.log(styles);
+
+
 
 
 */
 
-function extractCurrencyValue(str) {
-  return +str.slice(0);
+
+
+
+function getMaxSubSum(arr) {
+  let sumArr = 0;
+  let maxSumArr = 0;
+  for ( let y = 0; y < arr.length; y++) {
+  
+    for (let i=y; i < arr.length; i++) {
+      sumArr += arr[i];
+      maxSumArr = Math.max(sumArr, maxSumArr  );
+    }
+    sumArr = 0;
+  }
+  return maxSumArr;
 }
+
+
+alert(getMaxSumSub([1, 2, 3]));
