@@ -662,16 +662,19 @@ console.log(random(3, 7));
 
 
 
+alert( '𝒳'.charCodeAt(0).toString(2) ); // d835, между 0xd800 и 0xdbff
+alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3, между 0xdc00 и 0xdfff
 
 
 
-let arrNum =[];
-
-function random(min, max) {
-  let randomNum = min + Math.random() * (max - min + 1 );
-  randomNum = Math.floor(randomNum);
-  return randomNum;
+function ucFirst(str) {
+  if (str !== "") {
+    return str = str[0].toUpperCase() + str.slice(1);
+  } else {
+    return "";
+  }
 }
+alert(ucFirst(""));
 
 
 let arr = ['Яблоко', 'Груша', 'Апельсин'];
@@ -679,18 +682,17 @@ arr.push('Вишня');
 arr.unshift('Слива');
 console.log(arr);
 
-
-for(let i = random(0, (arr.length - 1)); arrNum.length != arr.length; i = random(0, (arr.length - 1))) {
-  
-  if (arrNum.indexOf(i) + 1) {
-    continue;
+function checkSpam(str) {
+  if (str.toLowerCase().includes("viagra") || str.toLowerCase().includes("xxx")) {
+    return true;
   } else {
-    arrNum.push(i);
-    console.log(arr[i]);
+    return false;
   }
-};
+}
 
-arr.length = 10;
+alert(checkSpam('buy ViAgRA now'));
+alert(checkSpam('free xxxxx'));
+alert(checkSpam("innocent rabbit"));
 
 arr[7] = undefined;
 arr[15] = null; 
@@ -698,24 +700,18 @@ console.log(arr);
 
 
 
+function truncate(str, maxlength) {
+  if (str.length <= maxlength ) {
+    return str;
+  } else {
+    return `${str.slice(0, maxlength-1)}…`;
+  }
+}
 
+alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
 
-let styles = ['Джаз', 'Блюз'];
-console.log(styles);
-styles.push('Рок-н-ролл');
-console.log(styles);
-let midNumArr = Math.round(styles.length/2);
-styles[midNumArr-1] = 'Классика';
-console.log(styles);
-alert(styles.shift());
-console.log(styles);
-styles.unshift('Рэп', 'Рэгги');
-console.log(styles);
+alert(truncate("Всем привет!", 20));
 
-
-
-
-*/
 
 
 
@@ -735,4 +731,21 @@ function getMaxSubSum(arr) {
 }
 
 
-alert(getMaxSumSub([1, 2, 3]));
+alert(getMaxSubSum([1, 2, 3]));
+
+*/
+
+function getMaxSubSum(arr) { 
+  let partSumArr = 0;
+  let maxSumArr = 0;
+  for(let key of arr) {
+    partSumArr += key;
+    maxSumArr = Math.max(maxSumArr, partSumArr);
+    if ( partSumArr < 0) {
+      partSumArr = 0;
+    }
+  }
+  return maxSumArr;
+}
+
+alert(getMaxSubSum([1, 2, 3]));
