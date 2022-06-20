@@ -733,7 +733,7 @@ function getMaxSubSum(arr) {
 
 alert(getMaxSubSum([1, 2, 3]));
 
-*/
+
 
 function getMaxSubSum(arr) { 
   let partSumArr = 0;
@@ -749,3 +749,47 @@ function getMaxSubSum(arr) {
 }
 
 alert(getMaxSubSum([1, 2, 3]));
+
+
+
+
+
+
+
+function isPrime(element, index, array) {
+  var start = 2;
+  while (start < element) {
+    if (element % start++ < 1) {
+      return false;
+    }
+  }
+  return element > 1;
+}
+
+console.log([4, 6, 8, 7, 12, 25].find(isPrime)); // undefined, не найдено
+console.log([4, 5, 8, 12].find(isPrime)); // 5
+
+*/
+
+
+
+function camelize(str) {
+  let arrStr = str.split("-");
+  console.log(arrStr);
+ // let arrStrUp = arrStr.map(item, index => index != 0 ? item[0] = item[0].toUpperCase() : )
+ let arrStrUp = arrStr.map(function(item, index) {
+   if(index != 0) {
+    return item[0].toUpperCase() + item.slice(1);
+   } else {
+     return item;
+   }
+ });
+ console.log(arrStrUp);
+ let strUp = arrStrUp.join('');
+ console.log(strUp);
+ return strUp;
+}
+
+camelize("-list-style-image");
+alert(camelize(""));
+
