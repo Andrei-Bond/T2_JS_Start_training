@@ -769,7 +769,7 @@ function isPrime(element, index, array) {
 console.log([4, 6, 8, 7, 12, 25].find(isPrime)); // undefined, не найдено
 console.log([4, 5, 8, 12].find(isPrime)); // 5
 
-*/
+
 
 
 
@@ -793,3 +793,36 @@ function camelize(str) {
 camelize("-list-style-image");
 alert(camelize(""));
 
+
+
+function filterRange(arr, a, b) {
+  return arr.filter(function(item) {
+
+  })
+}
+
+let arr = [5, 3, 8, 1];
+
+let filtered = filterRange(arr, 1, 4);
+
+alert( filtered ); // 3,1 (совпадающие значения)
+
+alert( arr ); // 5,3,8,1 (без изменений)
+
+
+*/
+
+function filterRangeInPlace(arr, a, b) {
+  arr.forEach(function(item, index) {
+    if (a > item || item > b) {
+      arr.splice(index, 1);
+    }
+  })
+}
+
+
+let arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+alert( arr ); // [3, 1]
