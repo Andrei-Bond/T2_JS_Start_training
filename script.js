@@ -810,7 +810,7 @@ alert( filtered ); // 3,1 (совпадающие значения)
 alert( arr ); // 5,3,8,1 (без изменений)
 
 
-*/
+
 
 function filterRangeInPlace(arr, a, b) {
   arr.forEach(function(item, index) {
@@ -826,3 +826,45 @@ let arr = [5, 3, 8, 1];
 filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
 
 alert( arr ); // [3, 1]
+
+
+
+
+
+let arr = [5, 2, 1, -10, 8];
+
+arr.sort(function(a,b) {
+  return b - a;
+})
+
+// ... ваш код для сортировки по убыванию
+
+alert(arr); // 8, 5, 2, 1, -10
+
+
+
+
+
+
+let arr = ["HTML", "JavaScript", "CSS"];
+
+let sorted = copySorted(arr);
+
+
+function copySorted(arr) {
+  return arr.concat().sort();
+}
+
+
+alert(sorted); // CSS, HTML, JavaScript
+alert(arr); // HTML, JavaScript,
+
+
+*/
+
+
+function Calculator(str) {
+  this.calculate = function(str) {
+    
+  }
+}
