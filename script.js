@@ -864,7 +864,44 @@ alert(arr); // HTML, JavaScript,
 
 
 function Calculator(str) {
+ this.operators = {};
+ this.operators["+"] = function(a, b) {
+    return +a + +b;
+  };
+  this.operators["-"] = function(a, b) {
+    return +a - +b;
+  };
   this.calculate = function(str) {
+    let arrKeyObj = [];
+    for (let key in this.operators) {
+        arrKeyObj = arrKeyObj.concat(key);
+    }
     
+    let strToArr = str.split(" ");
+    
+    if( strToArr.length === 3 && !isNaN(strToArr[2]) && !isNaN(strToArr[0]) && +strToArr[2] !== "" && +strToArr[0] !== "" && +strToArr[2] !== " " && +strToArr[0] !== " " && arrKeyObj.includes(strToArr[1])) {
+     return this.operators[strToArr[1]](strToArr[0], strToArr[2])
+    } else {
+    return 'Ошибка, повторите ввод';
+    }
   }
+  this.addMethod = function(newOper, fun) {
+    this.operators[newOper] = fun;
+  }
+  
 }
+
+let calc = new Calculator;
+
+alert(calc.calculate("3 - 8"));
+
+
+
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+alert(result); // 8
+console.log(Calculator)
