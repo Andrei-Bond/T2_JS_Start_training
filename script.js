@@ -1022,7 +1022,7 @@
   alert(getAverageAge(arr)); // (25 + 30 + 29) / 3 = 28
 
 
-*/
+
 
 
 function unique(arr) {
@@ -1040,3 +1040,21 @@ let strings = ["кришна", "кришна", "харе", "харе",
 ];
 
 alert(unique(strings)); // кришна, харе, :-O
+
+*/
+
+
+let login = prompt("Введите имя", '');
+
+let message;
+
+login == 'Сотрудник' ? 
+message = 'Привет' :
+(login == 'Директор') ?
+  message = 'Здравствуйте':
+ (login == '') ?
+  message = 'Нет логина':
+  message = '';
+
+
+alert(message); 
