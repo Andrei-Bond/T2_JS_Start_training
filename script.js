@@ -1041,7 +1041,7 @@ let strings = ["кришна", "кришна", "харе", "харе",
 
 alert(unique(strings)); // кришна, харе, :-O
 
-*/
+
 
 
 let login = prompt("Введите имя", '');
@@ -1058,3 +1058,47 @@ message = 'Привет' :
 
 
 alert(message); 
+
+
+
+
+
+let str = 'Hello';
+
+
+let iterator = str[Symbol.iterator]();
+while(true) {
+let result = iterator.next();
+if (result.done) {
+  break;
+} else {
+  alert(result.value);
+}
+}
+
+*/
+
+let range = {
+  from: 1,
+  to: 5,
+  
+  [Symbol.iterator]: function() {
+    return { current: this.from,
+    last: this.to,
+    next() {
+      if(this.current <= this.last) {
+        return {done:false, value: this.current++};
+      } else {
+        return {done:true};
+      }
+    },
+  }
+  }
+}
+
+for (let num of range) {
+  alert(num);
+}
+
+let arr = Array.from(range);
+alert(arr); // 1,2,3,4,5 (преобразование
