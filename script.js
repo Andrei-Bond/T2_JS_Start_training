@@ -1076,23 +1076,23 @@ if (result.done) {
 }
 }
 
-*/
 
 let range = {
   from: 1,
   to: 5,
   
   [Symbol.iterator]: function() {
-    return { current: this.from,
-    last: this.to,
-    next() {
-      if(this.current <= this.last) {
-        return {done:false, value: this.current++};
-      } else {
+    return { 
+      current: this.from,
+      last: this.to,
+      next() {
+        if(this.current <= this.last) {
+          return {done:false, value: this.current++};
+        } else {
         return {done:true};
-      }
-    },
-  }
+        }
+      },
+    }
   }
 }
 
@@ -1102,3 +1102,73 @@ for (let num of range) {
 
 let arr = Array.from(range);
 alert(arr); // 1,2,3,4,5 (преобразование
+
+
+
+
+
+
+function unique(arr) {
+  let sett = new Set();
+  arr.forEach(function(item) {
+  sett.add(item);
+  });
+  let str = "";
+  sett.forEach(function(item2) {
+    str = str + item2 + ",";
+  });
+  str = str.slice(0, -1);
+  console.log(sett);
+   return str;
+  
+}
+
+let values = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+alert(unique(values)); // Hare,Krishna,:-O
+
+
+
+*/
+
+
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+
+function aclean(arrUniq) {
+  let arrNoAnnog = [arrUniq[0]];
+  let arrLetters = [];
+  let stuffToArr = [];
+  one: for (let item of arrUniq) {
+   arrLetters = item.toLowerCase().split('').sort().join('');
+//console.log(arrLetters);
+  
+  
+   for (let stuff of arrNoAnnog) {
+     stuffToArr = stuff.toLowerCase().split('').sort().join('');
+     
+     console.log(arrNoAnnog.slice().reverse().lastIndexOf(stuff));
+     if (stuffToArr == arrLetters) {
+       continue one;
+     } else if(arrNoAnnog.slice().reverse().lastIndexOf(stuff) == 0){
+       arrNoAnnog.push(item);
+       continue one;
+     } else {
+       continue;
+     }
+   
+};
+} 
+return arrNoAnnog;
+}
+
+
+alert(aclean(arr)); // "nap,teachers,ear" или "PAN,cheaters
+
+
+
+
+
