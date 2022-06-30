@@ -1131,7 +1131,6 @@ alert(unique(values)); // Hare,Krishna,:-O
 
 
 
-*/
 
 
 
@@ -1170,5 +1169,66 @@ alert(aclean(arr)); // "nap,teachers,ear" или "PAN,cheaters
 
 
 
+let john = { name: "John" };
+
+let weakMap = new WeakMap();
+weakMap.set(john, "...");
+
+//john = null; // перезаписываем ссылку на объект
+
+// объект john удалён из памяти!
+
+console.log(weakMap.get());
 
 
+
+
+
+let map = new Map();
+
+map.set("name", "John");
+map.set("name2", "John2");
+
+let keys = Array.from(map.keys());
+console.log(keys);
+// Error: keys.push is not a function
+// Ошибка: keys.push -- это не функция
+keys.push("more");
+
+*/
+
+let messages = [
+  { text: "Hello", from: "John" },
+  { text: "How goes?", from: "John" },
+  { text: "See you soon", from: "Alice" }
+];
+
+let readMessages = new WeakSet();
+
+// Два сообщения были прочитаны
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
+// readMessages содержит 2 элемента
+
+// ...давайте снова прочитаем первое сообщение!
+readMessages.add(messages[0]);
+// readMessages до сих пор содержит 2 элемента
+
+// Вопрос: было ли сообщение message[0] прочитано?
+alert("Read message 0: " + readMessages.has(messages[0])); // true
+
+messages.shift();
+// теперь readMessages содержит 1 элемент (хотя технически память может быть очищена позже)
+
+alert("Read message 0: " + readMessages.has(messages[0])); // true
+console.log(readMessages.length);
+
+
+let timeReadMessage = new WeakMap();
+
+function addTime(mess, time) {
+  timeReadMessage.set(mess, time);
+}
+
+addTime(messages[1], '16:53 12.07.22');
+alert(timeReadMessage.get(messages[1]));
