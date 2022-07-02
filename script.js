@@ -1255,20 +1255,67 @@ function sumSalaries(obj) {
 
 alert(sumSalaries(salaries)); // 650
 
-*/
+
 
 let user = {
   name: 'John',
-  age: 30
+  age: 30,
+  name2: 'John',
+  age2: 30,
+  name3: 'John',
+  age3: 30,
+  name4: 'John',
+  age4: 30,
 };
 
 function count(obj) {
   let sum = 0;
   for(let key of Object.keys(obj)) {
     sum++;
-  }
+  console.log(sum);
+  };
   return sum;
 }
 
 
 alert(count(user)); // 2
+
+
+
+
+
+
+let user = { name: "John", years: 30 };
+
+// ваш код должен быть с левой стороны:
+// ... = user
+let {name, years: age, isAdmin = false} = user;
+
+alert(name); // John
+alert(age); // 30
+alert(isAdmin); // false
+
+
+*/
+
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250,
+};
+
+function topSalary(salaries) {
+  let maxSal = 0;
+  let topName = null;
+  for(let [key, value] of Object.entries(salaries)) {
+    
+    if (value > maxSal) {
+      maxSal = value;
+      topName = key;
+    }
+  }
+  return topName;
+}
+
+alert(topSalary(salaries));
