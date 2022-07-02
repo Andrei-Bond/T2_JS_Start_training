@@ -1,4 +1,4 @@
-    "use strict"
+   "use strict"
     /*let num = prompt('enter number', 5);
 
     function fac(num2){
@@ -1296,7 +1296,7 @@ alert(age); // 30
 alert(isAdmin); // false
 
 
-*/
+
 
 
 let salaries = {
@@ -1319,3 +1319,81 @@ function topSalary(salaries) {
 }
 
 alert(topSalary(salaries));
+
+
+
+
+
+let start = new Date();
+
+for (let i = 0; i < 10000000000; i++) {
+  let goWork = i*i*i;
+}
+
+let end = new Date();
+alert(Math.round((end - start)/1000) + " seconds");
+
+
+
+
+
+
+alert(new Date('2012-01-20T03:12:50.000+03:00'));
+
+
+
+let date = new Date(2012, 0, 3); // 3 января 2012 года
+
+function getWeekDay(dateIn) {
+  switch(dateIn.getDay()) {
+    case 0:
+      return "ВС";
+    
+    case 1:
+      return "ПН";
+      
+    case 2:
+      return "ВТ";
+      
+    case 3:
+      return "СР";
+    
+    case 4:
+      return "ЧТ";
+      
+    case 5:
+      return "ПТ";
+    
+    case 6:
+      return "СБ";
+    
+  }
+}
+
+
+alert(getWeekDay(date));
+
+
+function getLocalDay(dateIn) {
+  let localNumbers = [7, 1, 2, 3, 4, 5, 6];
+  return localNumbers[dateIn.getDay()];
+}
+
+alert(getLocalDay(date));
+
+
+*/
+
+
+let date = new Date(2015, 0, 2);
+
+function getDateAgo(dateSourse, daysAgo) {
+  
+  return ((new Date(dateSourse.getTime() - (86400*1000)*daysAgo).getDate()));
+}
+
+
+
+alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
