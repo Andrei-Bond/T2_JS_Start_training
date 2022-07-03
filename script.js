@@ -1382,7 +1382,7 @@ function getLocalDay(dateIn) {
 alert(getLocalDay(date));
 
 
-*/
+
 
 
 let date = new Date(2015, 0, 2);
@@ -1397,3 +1397,21 @@ function getDateAgo(dateSourse, daysAgo) {
 alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
 alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
 alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+
+
+*/
+
+
+
+function getLastDayOfMonth(year, month) {
+  let dateThis = new Date(year, month);
+  let nextMonth = new Date(dateThis);
+  nextMonth.setMonth(dateThis.getMonth() + 1);
+  nextMonth.setDate(nextMonth.getDate() - 1);
+  return nextMonth.getDate();
+  
+  
+}
+
+alert(getLastDayOfMonth(2012, 1)); // = 29
