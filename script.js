@@ -1400,7 +1400,7 @@ alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
 
 
 
-*/
+
 
 
 
@@ -1415,3 +1415,60 @@ function getLastDayOfMonth(year, month) {
 }
 
 alert(getLastDayOfMonth(2012, 1)); // = 29
+
+
+
+
+function getSecondsToday() {
+  let timeNow = new Date();
+  return timeNow.getHours() * 3600 + timeNow.getMinutes() * 60 + timeNow.getSeconds();
+}
+alert(getSecondsToday()); 
+
+
+
+function getSecondsToTomorrow() {
+  let now = new Date();
+  let today = new Date(now.getFullYear(), now.getMonth(), (now.getDate() + 1));
+  let diff = today - now;
+  return Math.round(diff/1000);
+}
+alert(getSecondsToTomorrow());
+
+
+*/
+
+
+
+let datePast = new Date();
+
+function formatDate(date) {
+  let diff = Date.now() - date;
+  switch (true) {
+    case (diff < 1000):
+      return "прямо сейчас";
+  
+    case (diff < (1000*60)):
+      return `${Math.round(diff/1000)} сек. назад`;
+  
+    case (diff < (1000*60*60)):
+      return `${Math.round(diff/1000/60)} мин. назад`;
+  
+    default:
+      let YY = ('' + date.getFullYear()).slice(-2);
+      return `${('0' + (date.getDate())).slice(-2)}.${('0' + (date.getMonth() + 1)).slice(-2)}.${YY} ${('0' + (date.getHours())).slice(-2)}:${('0' + (date.getMinutes())).slice(-2)}`;
+  
+  }
+}
+
+alert(formatDate(new Date(new Date - 1))); // "прямо сейчас"
+
+alert(formatDate(new Date(new Date - 30 * 1000))); // "30 сек. назад"
+
+alert(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 мин. назад"
+
+// вчерашняя дата вроде 31.12.2016, 20:00
+alert(formatDate(new Date(new Date - 86400 * 1000)));
+
+
+
