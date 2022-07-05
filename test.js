@@ -1,6 +1,6 @@
 "use strict"
 
-
+/*
 describe("pow", function() {
     before(() => alert("Тестирование началось – перед тестами"));
     after(() => alert("Тестирование закончилось – после всех тестов"));
@@ -33,3 +33,10 @@ describe("pow", function() {
         makeTest7(y);
     } } );
 }) ;
+
+*/
+describe("Tests", () => {
+  it("test", () => {
+    assert.strictEqual(removeExclamationMarks("Hello World!"), "Hello World");
+  });
+});

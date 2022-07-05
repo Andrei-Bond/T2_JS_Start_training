@@ -1436,7 +1436,7 @@ function getSecondsToTomorrow() {
 alert(getSecondsToTomorrow());
 
 
-*/
+
 
 
 
@@ -1472,3 +1472,38 @@ alert(formatDate(new Date(new Date - 86400 * 1000)));
 
 
 
+
+
+
+  function betterThanAverage(classPoints, yourPoints) {
+    // Your code here
+    let classAllPoints = classPoints.concat(yourPoints);
+    let sumPoints = classAllPoints.reduce(function(sum, point) {
+      return sum + point;
+    });
+    console.log(sumPoints);
+    let averagePoint = sumPoints / classAllPoints.length;
+    return (yourPoints > averagePoint);
+  }
+
+
+
+alert(betterThanAverage([2,3],5));
+
+
+*/
+
+
+function removeExclamationMarks(s) {
+  let arrS = s.split('');
+  let arrEditS = arrS.map(function(letter, index) {
+    if (letter != "!") {
+      return letter;
+    }
+  })
+  return arrEditS.join('');
+}
+
+
+
+mocha.run();
