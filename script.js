@@ -1491,7 +1491,7 @@ alert(formatDate(new Date(new Date - 86400 * 1000)));
 alert(betterThanAverage([2,3],5));
 
 
-*/
+
 
 
 function removeExclamationMarks(s) {
@@ -1503,6 +1503,24 @@ function removeExclamationMarks(s) {
   })
   return arrEditS.join('');
 }
+
+
+function feast(beast, dish) {
+  if (beast[0] == dish[0] && beast[beast.length - 1] == dish[dish.length-1]) {
+    console.log(beast[beast.length - 1] );
+    return true;
+  } else {
+    return false;
+  }
+  }
+
+*/
+
+
+
+const areaOrPerimeter = function(l , w) {
+  return  (l == w) ? l*w : l*2+w*2;
+};
 
 
 

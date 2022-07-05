@@ -34,9 +34,27 @@ describe("pow", function() {
     } } );
 }) ;
 
-*/
+
 describe("Tests", () => {
   it("test", () => {
     assert.strictEqual(removeExclamationMarks("Hello World!"), "Hello World");
   });
 });
+
+
+describe("Tests", () => {
+    it("test", () => {
+  assert.equal(feast("great blue heron", "garlic naan"), true)
+  assert.equal(feast("chickadee", "chocolate cake"), true)
+  assert.equal(feast("brown bear", "bear claw"), false)
+    });
+  });
+
+*/
+
+describe("Tests", () => {
+    it("test", () => {
+  assert.equal(areaOrPerimeter(4 , 4) , 16);
+  assert.equal(areaOrPerimeter(6 , 10) , 32);
+    });
+  });
