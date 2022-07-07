@@ -1514,7 +1514,6 @@ function feast(beast, dish) {
   }
   }
 
-*/
 
 
 
@@ -1525,3 +1524,19 @@ const areaOrPerimeter = function(l , w) {
 
 
 mocha.run();
+
+
+
+*/
+
+
+let user = {
+  name: "John",
+  age: 25,
+  roles: {
+    isAdmin: false,
+    isEditor: true
+  }
+};
+
+alert(JSON.stringify(user, null, 4));
