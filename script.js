@@ -1527,7 +1527,7 @@ mocha.run();
 
 
 
-*/
+
 
 
 let user = {
@@ -1540,3 +1540,40 @@ let user = {
 };
 
 alert(JSON.stringify(user, null, 4));
+
+
+
+
+
+let user = {
+  name: "Василий Иванович",
+  age: 35
+};
+
+let userJson = JSON.stringify(user);
+let newUser = JSON.parse(userJson);
+console.log(newUser);
+
+
+
+*/
+
+
+
+let room = {
+  number: 23
+};
+
+let meetup = {
+  title: "Совещание",
+  occupiedBy: [{ name: "Иванов" }, { name: "Петров" }],
+  place: room
+};
+
+// цикличные ссылки
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+alert(JSON.stringify(meetup, function replacer(key, value) {
+  return  (value == meetup && key !== "") ? undefined : value;
+}));
