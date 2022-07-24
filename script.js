@@ -1556,7 +1556,7 @@ console.log(newUser);
 
 
 
-*/
+
 
 
 
@@ -1577,3 +1577,28 @@ meetup.self = meetup;
 alert(JSON.stringify(meetup, function replacer(key, value) {
   return  (value == meetup && key !== "") ? undefined : value;
 }));
+
+
+function descendingOrder(n) {
+  let arrNum = String(n).split("");
+  let arrNumSort = arrNum.sort( (a, b) => a - b );
+  return Number(arrNumSort.reverse().join(''));
+}
+
+
+alert(descendingOrder(356366467));
+
+
+
+*/
+
+function sumTwoSmallestNumbers(numbers) {
+  if(numbers.length >= 4) {
+    numbers.sort((a, b) => a - b);
+    return numbers[0] + numbers[1];
+  } else {
+    return "input 4 or more numbers";
+  }
+}
+
+alert(sumTwoSmallestNumbers([1, 6, 96, 3, 9]));
