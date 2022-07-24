@@ -1590,7 +1590,6 @@ alert(descendingOrder(356366467));
 
 
 
-*/
 
 function sumTwoSmallestNumbers(numbers) {
   if(numbers.length >= 4) {
@@ -1602,3 +1601,25 @@ function sumTwoSmallestNumbers(numbers) {
 }
 
 alert(sumTwoSmallestNumbers([1, 6, 96, 3, 9]));
+
+
+*/
+
+
+function rowSumOddNumbers(n) {
+  let arrOddNumbers = [];
+  let maxNum = 1000000;
+  for(let i = 1; i <= maxNum; i += 2) {
+    arrOddNumbers.push(i);
+  }
+  let indexFirstNum = 0;
+  for (let i = 1; i < n; i++) {
+    indexFirstNum += i;
+  }
+  let rowArr = arrOddNumbers.slice(indexFirstNum, indexFirstNum + n);
+  return rowArr.reduce((sum, current) => sum + current);
+  
+}
+
+alert(rowSumOddNumbers(3));
+
