@@ -1603,7 +1603,7 @@ function sumTwoSmallestNumbers(numbers) {
 alert(sumTwoSmallestNumbers([1, 6, 96, 3, 9]));
 
 
-*/
+
 
 
 function rowSumOddNumbers(n) {
@@ -1623,3 +1623,29 @@ function rowSumOddNumbers(n) {
 
 alert(rowSumOddNumbers(3));
 
+
+
+
+
+// цикл:
+function sumTo(n) {
+  let sum = 0;
+  for (let i = n ; i !== 0 ; i--) {
+    sum += i;
+  }
+  return sum;
+}
+
+*/
+// рекурсия:
+
+function sumTo(n) {
+  if(n == 1) {
+    return n;
+  } else {
+    return n + sumTo(n-1);
+    
+  }
+}
+
+alert( sumTo(100) ); // 5050
