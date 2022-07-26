@@ -1636,7 +1636,7 @@ function sumTo(n) {
   return sum;
 }
 
-*/
+
 // рекурсия:
 
 function sumTo(n) {
@@ -1648,4 +1648,112 @@ function sumTo(n) {
   }
 }
 
+
+
+// арифмметическая прогрессия:
+
+function sumTo(n) {
+  return (1+n)*n/2
+}
+
+
 alert( sumTo(100) ); // 5050
+
+
+
+
+
+
+function factorial(n) {
+  if(n==1) {
+    return 1;
+  } else {
+    return n*factorial(n-1);
+  }
+}
+
+alert(factorial(3));
+
+
+
+
+
+
+function fib(n) { 
+  let start = Date.now();
+  let sum = 1;
+  let prevSum = 1;
+  let tunk;
+  for(let i=1; i < n-1; i++){
+    tunk = sum;
+    sum = sum + prevSum;
+    prevSum = tunk;
+  }
+  return `${sum} - ${Date.now() - start}`;
+}
+
+
+
+
+
+// рекурсия:
+function fib(n) {
+  if(n <= 1 ) {
+    return n;
+  } else {
+    return  fib(n-1)+fib(n-2);
+  };
+}
+
+
+
+alert(fib(3)); // 2
+alert(fib(7)); // 13
+alert(fib(767)); // 5527939700884757
+
+
+*/
+
+//рекурсия
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+
+function printListRec(list) {
+  if(list.next == null) {
+    alert(list.value);
+  } else {
+    
+    printListRec(list.next);
+    alert(list.value);
+  }
+  
+}
+
+function printListCyrcl(list){
+  let tunk = list;
+  let arr = [];
+  for(; tunk !== null;){
+    arr.push(tunk.value);
+    tunk = tunk.next;
+  }
+  arr.reverse();
+  arr.forEach(function(item){
+    alert(item);
+  })
+}
+
+printListRec(list);
+printListCyrcl(list);
