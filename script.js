@@ -1712,7 +1712,7 @@ alert(fib(7)); // 13
 alert(fib(767)); // 5527939700884757
 
 
-*/
+
 
 //рекурсия
 
@@ -1757,3 +1757,14 @@ function printListCyrcl(list){
 
 printListRec(list);
 printListCyrcl(list);
+
+
+*/
+
+
+let arr = [3, 5, 1];
+let arr2 = [8, 9, 15];
+
+let merged = [0, ...arr, 2, ...arr2];
+
+alert(typeof(merged)); // 0,3,5,1,2,8,9,15 (0, затем arr, затем 2, в конце arr2)
