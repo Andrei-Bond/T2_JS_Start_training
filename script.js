@@ -1759,12 +1759,36 @@ printListRec(list);
 printListCyrcl(list);
 
 
+
+
+let arr = [1,2,3];
+console.log(arr.find(() => false));
+
+
+
+let l = [1,2,3,'g','y'];
+
+function filter_list(l) {
+  return l.filter((item) => typeof(item) === "number");
+}
+
+console.log(filter_list(l));
+
+
 */
 
 
-let arr = [3, 5, 1];
-let arr2 = [8, 9, 15];
+let arr = [3, 5, 6.2, 1];
 
-let merged = [0, ...arr, 2, ...arr2];
 
-alert(Array.isArray(merged)); // 0,3,5,1,2,8,9,15 (0, затем arr, затем 2, в конце arr2)
+function sum(numbers) {
+  "use strict";
+  let sum = 0;
+  numbers.forEach(function(item) {
+    sum += item;
+  });
+  return sum;
+};
+
+
+console.log(sum(arr));
