@@ -1775,7 +1775,6 @@ function filter_list(l) {
 console.log(filter_list(l));
 
 
-*/
 
 
 let arr = [3, 5, 6.2, 1];
@@ -1792,3 +1791,45 @@ function sum(numbers) {
 
 
 console.log(sum(arr));
+
+
+
+
+let str = 'helloy'
+
+
+function getCount(str) {
+  return str.split('').reduce(function(sum, item) {
+    if(item == 'a' || item == 'e' ||item == 'i' || item == 'o' ||  item == 'u') {
+    sum += 1;
+    }
+    return sum;
+  }, 0)
+}
+
+console.log(getCount(str));
+
+
+
+let friends = ["Ryan", "Kieran", "Mark"];
+
+function friend(friends) {
+  return friends.filter(function(item) {
+    if(item.length == 4) {
+      return true;
+    }
+  })
+}
+
+console.log(friend(friends));
+
+
+*/
+
+let numbers = [2, 7, 3];
+
+function grow(x) {
+  return x.reduce((grow, x) => grow *= x, 1)
+}
+
+console.log(grow(numbers));
