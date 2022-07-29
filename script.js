@@ -1824,7 +1824,7 @@ function friend(friends) {
 console.log(friend(friends));
 
 
-*/
+
 
 let numbers = [2, 7, 3];
 
@@ -1833,3 +1833,109 @@ function grow(x) {
 }
 
 console.log(grow(numbers));
+
+
+
+
+
+
+function f() {
+  let value = Math.random();
+
+  function g() {
+    debugger; // в консоли: напишите alert(value); Такой переменной нет!
+  }
+
+  return g;
+}
+
+let g = f();
+g();
+g();
+
+
+
+
+function sum(a) {
+  let count = 0
+  return function(b) {
+    return b + a;
+  };
+};
+
+
+
+
+
+alert(sum(1)(2));
+sum(5)(-1);
+
+
+
+
+
+function inBetween(a, b) {
+  return function(item) {
+  return item >= a && b >= item
+  }
+}
+
+function inArray(arr) {
+  return function(item) {
+    return arr.includes(item);
+  }
+}
+
+
+let arr = [0, 1, 2, 3, 4, 5, 6, 7];
+
+alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+
+
+
+let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+function byField(fieldName) {
+  return function(a, b) {
+    return (a[fieldName] > b[fieldName]) ? 1 : -1;
+  }
+}
+
+
+users.sort(byField('name'));
+console.log(users);
+users.forEach(user => alert(user.name)); 
+users.sort(byField('age'));
+console.log(users);
+users.forEach(user => alert(user.name)); 
+
+*/
+
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+    let x = i;
+    let shooter = function() { // функция shooter
+      alert(x); // должна выводить порядковый номер
+    };
+    shooters.push(shooter);
+    i++;
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // у 0-го стрелка будет номер 10
+army[5](); // и у 5-го стрелка тоже будет номер 10
+// ... у всех стрелков будет номер 10, вместо 0, 1, 2, 3...
