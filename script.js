@@ -1916,7 +1916,7 @@ users.sort(byField('age'));
 console.log(users);
 users.forEach(user => alert(user.name)); 
 
-*/
+
 
 function makeArmy() {
   let shooters = [];
@@ -1939,3 +1939,19 @@ let army = makeArmy();
 army[0](); // у 0-го стрелка будет номер 10
 army[5](); // и у 5-го стрелка тоже будет номер 10
 // ... у всех стрелков будет номер 10, вместо 0, 1, 2, 3...
+
+
+
+*/
+
+
+function highAndLow(numbers) {
+  return `${Math.max(...numbers.split(" "))} ${Math.min(...numbers.split(" "))}`
+}
+
+console.log(
+
+highAndLow("1 2 3 4 5")); // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return
+
