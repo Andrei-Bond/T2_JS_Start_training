@@ -1942,7 +1942,7 @@ army[5](); // и у 5-го стрелка тоже будет номер 10
 
 
 
-*/
+
 
 
 function highAndLow(numbers) {
@@ -1955,3 +1955,23 @@ highAndLow("1 2 3 4 5")); // return "5 1"
 highAndLow("1 2 -3 4 5"); // return "5 -3"
 highAndLow("1 9 3 4 -5"); // return
 
+*/
+
+
+function DNAStrand(dna){
+  return dna.split("").map(function(item) {
+    switch(item) {
+      case "A" :
+        return "T";
+      case "T" :
+        return "A";
+      case "C" :
+        return "G";
+      case "G" :
+        return "C";
+    }
+  }).join("");
+}
+
+
+console.log(DNAStrand("ATTGC"));
