@@ -1955,7 +1955,7 @@ highAndLow("1 2 3 4 5")); // return "5 1"
 highAndLow("1 2 -3 4 5"); // return "5 -3"
 highAndLow("1 9 3 4 -5"); // return
 
-*/
+
 
 
 function DNAStrand(dna){
@@ -1975,3 +1975,82 @@ function DNAStrand(dna){
 
 
 console.log(DNAStrand("ATTGC"));
+
+
+
+
+
+let sayHi = function (who) {
+  if (who) {
+    alert(`Hello, ${who}`);
+  } else {
+    sayHi("Guest"); // использует func, чтобы снова вызвать себя же
+  }
+};
+
+let welcome = sayHi;
+sayHi = null;
+
+console.log(welcome.name)
+welcome(); // Hello, Guest
+
+// А вот так - не cработает:
+func(); // Ошибка, func не определена
+
+
+
+
+
+  function makeCounter() {
+    let count = 0;
+    function counter() {
+      return count++;
+    }
+    counter.set = function(i) {
+      count = i;
+    }
+    counter.decrease = function() {
+      count--;
+    }
+    
+    return counter;
+  }
+  
+  let counter = makeCounter();
+  
+  alert( counter() ); // 0
+  alert( counter() ); // 1
+  
+  counter.set(10); // установить новое значение счётчика
+  
+  alert( counter() ); // 10
+  
+  counter.decrease(); // уменьшить значение счётчика на 1
+  
+  alert( counter() ); // 10 (вместо 11)
+
+
+*/
+
+function sum(a) {
+  let count = a;
+  let f = function(b) {
+    count += b;
+    return f;
+  };
+  f.toString = function() {
+    return count;
+  };
+  return f;
+}
+
+
+
+
+alert(sum(1)(2)); // 3; // 1 + 2
+sum(1)(2)(3) // 6; // 1 + 2 + 3
+sum(5)(-1)(2) // 6
+sum(6)(-1)(-2)(-3) // 0
+sum(0)(1)(2)(3)(4)(5) // 15
+
+
