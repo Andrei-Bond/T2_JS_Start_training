@@ -2030,7 +2030,7 @@ func(); // Ошибка, func не определена
   alert( counter() ); // 10 (вместо 11)
 
 
-*/
+
 
 function sum(a) {
   let count = a;
@@ -2054,3 +2054,53 @@ sum(6)(-1)(-2)(-3) // 0
 sum(0)(1)(2)(3)(4)(5) // 15
 
 
+//
+let i;
+
+function printNumbers(from, to) {
+  i = from;
+  alert(i);
+  while(i <= to) {
+    
+    setTimeout("i++", 1000);
+    alert(i);
+  }
+}
+
+printNumbers(3, 9);
+//
+
+
+//let i;
+
+function printNumbers(from, to) {
+  let i = from;
+  let timerId = setInterval(function() {
+    console.log(i);
+    if(i<10){
+      i++;
+    } else {
+    clearInterval(timerId);
+    }
+  }, 2000)
+}
+
+printNumbers(3, 9);
+
+
+// 
+*/
+function printNumbers(from, to) {
+  let i = from;
+  let timerId = setTimeout(function f() {
+    console.log(i);
+    if(i<10){
+      i++;
+      setTimeout(f, 2000)
+    } else {
+    clearTimeout(timerId);
+    }
+  }, 2000)
+}
+
+printNumbers(3, 9);
