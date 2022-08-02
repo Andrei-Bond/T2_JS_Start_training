@@ -2089,7 +2089,7 @@ printNumbers(3, 9);
 
 
 // 
-*/
+
 function printNumbers(from, to) {
   let i = from;
   let timerId = setTimeout(function f() {
@@ -2104,3 +2104,35 @@ function printNumbers(from, to) {
 }
 
 printNumbers(3, 9);
+//
+
+
+
+*/ 
+
+
+function work(a, b) {
+  alert( a + b ); // произвольная функция или метод
+}
+
+
+function spy(func) {
+  
+  return function.call(this, a, b) {
+    this.calls = [1, 2];
+    console.log(a, b);
+    calls.push(a, b);
+    return func(a, b);
+  }
+  }
+
+
+
+work = spy(work);
+work(1, 2); // 3
+work(4, 5); // 9
+console.log(work.calls);
+for (let args of work.calls) {
+  alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
+}
+
