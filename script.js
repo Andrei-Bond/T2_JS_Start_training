@@ -2108,7 +2108,7 @@ printNumbers(3, 9);
 
 
 
-*/ 
+
 
 
 function work(a, b) {
@@ -2135,4 +2135,84 @@ console.log(work.calls);
 for (let args of work.calls) {
   alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
 }
+// 
+let user = {
+  firstName: "Вася",
+  sayHi() {
+    alert(`Привет, ${this.firstName}!`);
+  }
+};
 
+setTimeout(user.sayHi.bind(user), 1000); // Привет, undefined!
+
+
+user = { sayHi() { alert("Другой пользователь в 'setTimeout'!"); } };
+
+
+function f() {
+  alert( this ); // ?
+}
+
+let user = {
+  g: f,
+};
+
+user.g();
+
+//
+
+
+function sayHi() {
+  alert( this.name );
+}
+sayHi.test = 5;
+
+let bound = sayHi.bind({
+  name: "Вася"
+});
+
+alert( bound.test ); // что выведет? почему?
+
+//
+
+
+function askPassword(ok, fail) {
+  let password = prompt("Password?", '');
+  if (password == "rockstar") ok();
+  else fail();
+}
+
+let user = {
+  name: 'Вася',
+
+  loginOk() {
+    alert(`${this.name} logged in`);
+  },
+
+  loginFail() {
+    alert(`${this.name} failed to log in`);
+  },
+
+};
+
+askPassword(user.loginOk.bind(user),user.loginFail.bind(user));
+
+//
+
+*/
+
+function askPassword(ok, fail) {
+  let password = prompt("Password?", '');
+  if (password == "rockstar") ok();
+  else fail();
+}
+
+let user = {
+  name: 'John',
+
+  login(result) {
+    alert( this.name + (result ? ' logged in' : ' failed to log in') );
+  }
+};
+
+askPassword(user.login.bind(user, true), user.login.bind(user, false)); // ?
