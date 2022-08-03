@@ -2199,7 +2199,6 @@ askPassword(user.loginOk.bind(user),user.loginFail.bind(user));
 
 //
 
-*/
 
 function askPassword(ok, fail) {
   let password = prompt("Password?", '');
@@ -2216,3 +2215,53 @@ let user = {
 };
 
 askPassword(user.login.bind(user, true), user.login.bind(user, false)); // ?
+
+//
+
+
+
+function work(a, b) {
+  alert( a + b ); // произвольная функция или метод
+}
+
+function spy(func) {
+    function wrap(...args) {
+    wrap.calls.push(args);
+    return func.call(this,...args);
+  }
+  wrap.calls = [];
+  return wrap;
+}
+
+work = spy(work);
+work(1, 2); // 3
+work(4, 5); // 9
+//work.calls = [[1,1],[1,1],[1,1]];
+console.log(work.calls)
+
+for (let args of work.calls) {
+  alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
+}
+//
+*/
+
+function f(x) {
+  alert(x);
+}
+function delay(func, delay) {
+  return function(...args) {
+    let saveThis = this;
+    function func2(...args) {
+      return func.apply(saveThis, ...args);
+    }
+  setTimeout(func2, delay, args);
+  }
+}
+
+
+// создаём обёртки
+let f1000 = delay(f, 1000);
+let f1500 = delay(f, 1500);
+
+f1000("test"); // показывает "test" после 1000 мс
+f1500("test"); // показывает "test" после 1500 мс
