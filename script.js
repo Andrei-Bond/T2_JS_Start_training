@@ -2243,7 +2243,7 @@ for (let args of work.calls) {
   alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
 }
 //
-*/
+
 
 function f(x) {
   alert(x);
@@ -2265,3 +2265,49 @@ let f1500 = delay(f, 1500);
 
 f1000("test"); // показывает "test" после 1000 мс
 f1500("test"); // показывает "test" после 1500 мс
+//
+
+let f = debounce(console.log, 1000);
+
+function debounce(func, ms) {
+    let lastCall = 0;
+  return function(args) {
+    if((Date.now() - lastCall) > ms) {
+      console.log(Date.now() - lastCall);
+      lastCall = Date.now();
+      return func(args);
+    }
+    return console.log(Date.now() - lastCall);
+  }
+}
+
+
+
+f(1); // выполняется немедленно
+f(2); // проигнорирован
+
+setTimeout(() => f(3), 100); // проигнорирован (прошло только 100 мс)
+setTimeout(() => f(4), 1100); // выполняется
+setTimeout(() => f(5), 1500); //
+// variable 2:
+
+*/
+
+let f = debounce(console.log, 1000);
+
+function debounce(func, ms) {
+  let tumblerOff = false;
+  return function(...args) {
+    if(tumblerOff) return;
+    tumblerOff = true;
+    setTimeout(() => tumblerOff = false, ms);
+    return func.apply(this, args)
+  }
+}
+
+f(1); // выполняется немедленно
+f(2); // проигнорирован
+
+setTimeout( () => f(3), 100); // проигнорирован (прошло только 100 мс)
+setTimeout( () => f(4), 1100); // выполняется
+setTimeout( () => f(5), 1500); 
