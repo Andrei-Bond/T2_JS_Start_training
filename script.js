@@ -2313,7 +2313,7 @@ setTimeout( () => f(4), 1100); // выполняется
 setTimeout( () => f(5), 1500); 
 //
 
-*/
+
 
 function f(a) {
   console.log(a)
@@ -2348,3 +2348,21 @@ f1000(2); // (ограничение, 1000 мс ещё нет)
 f1000(3); // (ограничение, 1000 мс ещё нет)
 setTimeout(f1000, 3200, 6)
 
+//
+*/
+
+let user = {
+  name: "John"
+};
+
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+console.log(descriptor);
+/* дескриптор свойства:
+{
+  "value": "John",
+  "writable": true,
+  "enumerable": true,
+  "configurable": true
+}
+*/
