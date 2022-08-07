@@ -2349,7 +2349,7 @@ f1000(3); // (ограничение, 1000 мс ещё нет)
 setTimeout(f1000, 3200, 6)
 
 //
-*/
+
 
 let user = {
   name: "John"
@@ -2365,4 +2365,60 @@ console.log(descriptor);
   "enumerable": true,
   "configurable": true
 }
+
+
+////
+
+
+let head = {
+  glasses: 1
+};
+
+let table = {
+  pen: 3
+};
+
+let bed = {
+  sheet: 1,
+  pillow: 2
+};
+
+let pockets = {
+  money: 2000
+};
+
+pockets.__proto__ = bed;
+bed.__proto__ = table;
+table.__proto__ = head;
+
+alert( pockets.pen ); // 3
+alert( bed.glasses ); // 1
+alert( table.money ); // undefined
+////
 */
+
+
+let hamster = {
+  stomach: [],
+
+  eat(food) {
+    this.stomach.push(food);
+  }
+};
+
+let speedy = {
+  __proto__: hamster,
+  stomach: [],
+};
+
+let lazy = {
+  stomach: [],
+  __proto__: hamster
+};
+
+// Этот хомяк нашёл еду
+speedy.eat("apple");
+alert(speedy.stomach); // apple
+
+// У этого хомяка dfоже есть еда. Почему? Исправьте       
+alert(lazy.stomach); // apple
