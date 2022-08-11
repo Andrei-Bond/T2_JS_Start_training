@@ -2395,7 +2395,7 @@ alert( pockets.pen ); // 3
 alert( bed.glasses ); // 1
 alert( table.money ); // undefined
 ////
-*/
+
 
 
 let hamster = {
@@ -2422,3 +2422,146 @@ alert(speedy.stomach); // apple
 
 // У этого хомяка dfоже есть еда. Почему? Исправьте       
 alert(lazy.stomach); // apple
+
+/////
+
+
+
+
+
+let animal = {
+  eats: true
+};
+
+function Rabbit(name) {
+  this.name = name;
+}
+
+Rabbit.prototype = animal;
+
+let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+alert(rabbit.eats); // true
+
+
+/////
+
+
+function MyObj(name, value) {
+  this.name = value;
+}
+
+MyObj.prototype.constructor = null;
+let obj = new MyObj('name', "John");
+alert(obj.name);
+
+let obj2 = new obj.constructor('name', 'Vasya');
+alert(obj2.name);
+
+
+///
+
+
+console.dir([1,2,3])
+
+
+function f() {
+  alert("Hello!");
+}
+
+Function.prototype.defer = function(ms) {
+  setTimeout(this, ms);
+}
+f.defer(1000); // выведет "Hello!"
+
+
+///
+
+function f(a, b) {
+  alert(a + b);
+}
+Function.prototype.defer = function(ms) {
+  
+  function deferLocal(...args) {
+  setTimeout(() => this.apply(deferLocal, args), ms);
+}
+  return deferLocal.bind(this);
+}
+f.defer(1000)(1, 2); // выведет 3 через 1 секунду
+
+
+///
+
+var dog = {
+  breed: 'Beagles',
+  lovesToChase: 'rabbits'
+};
+
+function chase() {
+  console.log(this.breed + ' loves chasing ' + this.lovesToChase + '.');
+}
+
+dog.foo = chase;
+dog.foo(); // в консоль попадёт Beagles loves chasing rabbits.
+
+ //так эту функцию лучше не
+
+
+
+///
+function Dog(breed, name, friends) {
+  this.breed = breed;
+  this.name = name;
+  this.friends = friends;
+  this.intro = function() {
+    console.log(`Hi, my name is ${this.name} and I’m a ${this.breed}`);
+    return this;
+  };
+}
+
+// Создадим новый экземпляр объекта типа Dog
+var chester = new Dog('beagle', 'Chester', ['Gracie', 'Josey', 'Barkley']);
+chester.intro(); // выводит Hi, my name is Chester and I'm a beagle
+console.log(chester); // выводит
+
+
+*/
+////
+function out() {
+  let i = 1;
+  let y = 2;
+
+}
+  out.sayHi = function(){
+    alert(this);
+  }
+  
+  
+  
+  
+/////
+out.sayHi();
+
+
+
+
+
+function f(a, b) {
+  alert(a + b);
+}
+Function.prototype.defer = function(ms) {
+  let func = this;
+  console.log(this);
+  function deferLocal(...args) {
+  setTimeout(function() {
+    return func.apply(this, args);
+  }, ms);
+}
+  return deferLocal.bind(this);
+}
+
+f.defer(1000)(1, 2); // выведет 3 через 1 секунду
+
+
+
+console.dir(f);
