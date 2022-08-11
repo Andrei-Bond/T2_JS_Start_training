@@ -2525,7 +2525,7 @@ chester.intro(); // выводит Hi, my name is Chester and I'm a beagle
 console.log(chester); // выводит
 
 
-*/
+
 ////
 function out() {
   let i = 1;
@@ -2565,3 +2565,17 @@ f.defer(1000)(1, 2); // выведет 3 через 1 секунду
 
 
 console.dir(f);
+
+*/
+///
+
+let animal = {
+  eats: true
+};
+
+let rabbit = Object.create(animal, {
+  jumps: true,
+  
+});
+
+alert(rabbit.jumps); // true
