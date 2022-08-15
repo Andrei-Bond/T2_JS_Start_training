@@ -2581,7 +2581,7 @@ let rabbit = Object.create(animal, {
 alert(rabbit.jumps); // true
 //
 
-*/
+
 
 let dictionary = Object.create(null);
 
@@ -2605,3 +2605,29 @@ for(let key in dictionary) {
 
 // ваш метод toString в действии
 alert(dictionary); // "apple,__proto__"
+
+
+*/
+///
+
+
+function Rabbit(name) {
+  this.name = name;
+}
+Rabbit.prototype.sayHi = function() {
+  alert(this.name);
+};
+
+let rabbit = new Rabbit("Rabbit");
+console.log(Rabbit.prototype);
+console.log(rabbit.prototype);
+console.log(Rabbit.__proto__);
+console.log(rabbit.__proto__);
+
+
+console.log(Function.prototype)
+
+
+
+
+
