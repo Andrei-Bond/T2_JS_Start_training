@@ -2628,7 +2628,7 @@ console.log(Function.prototype)
 
 ////////
 
-*/
+
 
 
 function disemvowel(str) {
@@ -2641,3 +2641,89 @@ function disemvowel(str) {
 
 
 mocha.run();
+
+
+// 
+
+
+class User {
+
+  constructor(name) {
+    // вызывает сеттер
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Имя слишком короткое.");
+      return;
+    }
+    this._name = value;
+  }
+
+}
+
+let user = new User("Иван");
+alert(user.name); // Иван
+
+user = new User(""); // Имя слишком короткое.
+
+console.log(user)
+
+
+//
+class User {
+  name = "Аноним";
+  sayHi() {
+    alert(`Привет, ${this.name}!`);
+  }
+}
+
+let user = new User();
+console.log(user);
+
+//
+*/
+function Clock({ template }) {
+  
+  let timer;
+
+  function render() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  this.stop = function() {
+    clearInterval(timer);
+  };
+
+  this.start = function() {
+    render();
+    timer = setInterval(render, 1000);
+  };
+
+}
+
+let clock = new Clock({template: 'h:m:s'});
+clock.start();
+clock.stop();
+console.log(clock)
