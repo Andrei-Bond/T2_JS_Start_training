@@ -2607,7 +2607,6 @@ for(let key in dictionary) {
 alert(dictionary); // "apple,__proto__"
 
 
-*/
 ///
 
 
@@ -2627,7 +2626,18 @@ console.log(rabbit.__proto__);
 
 console.log(Function.prototype)
 
+////////
+
+*/
 
 
+function disemvowel(str) {
+  let strFilt = str.split("").filter(function(item) {
+    return !(item.toLowerCase() == "a" || item.toLowerCase() == "o" || item.toLowerCase() == "i" ||
+      item.toLowerCase() == "u" || item.toLowerCase() == "e");
+  }).join("");
+  return strFilt;
+}
 
 
+mocha.run();
