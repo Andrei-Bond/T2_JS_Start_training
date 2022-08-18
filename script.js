@@ -2688,11 +2688,9 @@ console.log(user);
 
 //
 */
-function Clock({ template }) {
+class Clock {
   
-  let timer;
-
-  function render() {
+  render() {
     let date = new Date();
 
     let hours = date.getHours();
@@ -2704,26 +2702,28 @@ function Clock({ template }) {
     let secs = date.getSeconds();
     if (secs < 10) secs = '0' + secs;
 
-    let output = template
+    let output = this.template
       .replace('h', hours)
       .replace('m', mins)
       .replace('s', secs);
 
     console.log(output);
+  };
+  constructor({template}) {
+  this.template = template
   }
 
-  this.stop = function() {
-    clearInterval(timer);
+  stop() {
+    clearInterval(this.timer);
   };
-
-  this.start = function() {
-    render();
-    timer = setInterval(render, 1000);
+  
+  start() {
+    this.render();
+    this.timer = setInterval(this.render, 1000);
   };
-
 }
 
 let clock = new Clock({template: 'h:m:s'});
 clock.start();
-clock.stop();
+//clock.stop();
 console.log(clock)
