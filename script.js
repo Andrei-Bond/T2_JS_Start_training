@@ -2787,7 +2787,7 @@ class Rabbit extends Animal {
 
 let rabbit = new Rabbit("Белый кролик"); // Error: this is not defined
 alert(rabbit.name);
-*/
+
 ///
 
 
@@ -2826,4 +2826,16 @@ class Clock {
   }
 }
 
+///
+*/
 
+class Rabbit extends Object {
+  constructor(name) {
+    super();
+    this.name = name;
+  }
+}
+
+let rabbit = new Rabbit("Кроль");
+
+alert(rabbit.hasOwnProperty('name')); // Ошибка
