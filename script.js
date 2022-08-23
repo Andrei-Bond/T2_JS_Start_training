@@ -2827,7 +2827,7 @@ class Clock {
 }
 
 ///
-*/
+
 
 class Rabbit extends Object {
   constructor(name) {
@@ -2839,3 +2839,46 @@ class Rabbit extends Object {
 let rabbit = new Rabbit("Кроль");
 
 alert(rabbit.hasOwnProperty('name')); // Ошибка
+///
+
+
+class PowerArray extends Array {
+  isEmpty() {
+    return this.length === 0;
+  }
+  static get [Symbol.species]() {
+    return Array;
+  }
+}
+
+let arr = new PowerArray(1, 2, 5, 10, 50);
+alert(arr.isEmpty()); // false
+
+let filteredArr = arr.filter(item => item >= 10);
+alert(filteredArr); // 10, 50
+//alert(filteredArr.isEmpty()); // false
+console.log(filteredArr);
+let filteredArr2 = filteredArr.filter(item => item >= 50);
+console.log(filteredArr2);
+
+///
+
+console.log(Object.prototype.toString);
+///
+*/
+
+class FormatError extends SyntaxError {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+let err = new FormatError("ошибка форматирования");
+
+alert(err.message); // ошибка форматирования
+alert(err.name); // FormatError
+alert(err.stack); // stack
+
+alert(err instanceof FormatError); // true
+alert(err instanceof SyntaxError); // true (потому что наследует от SyntaxError)
