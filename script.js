@@ -2865,7 +2865,7 @@ console.log(filteredArr2);
 
 console.log(Object.prototype.toString);
 ///
-*/
+
 
 class FormatError extends SyntaxError {
   constructor(message) {
@@ -2882,3 +2882,32 @@ alert(err.stack); // stack
 
 alert(err instanceof FormatError); // true
 alert(err instanceof SyntaxError); // true (потому что наследует от SyntaxError)
+
+///
+
+function addBinary(a,b) {
+  return (a + b).toString(2);
+}
+
+alert(addBinary(2, 1));
+///
+
+
+const binaryArrayToNumber = arr => {
+  return +("0b" + arr.join("")).toString(10);
+};
+alert(binaryArrayToNumber([0,0,0,1]))
+
+*/
+///
+
+var number=function(array){
+  if(array.lenth = 0) {
+    return [];
+  };
+  let i = 0;
+  return array.map(function(item) {
+    i++;
+    return i + ": " + item;
+  })
+}
