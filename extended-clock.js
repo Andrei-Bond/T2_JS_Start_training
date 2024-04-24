@@ -1,5 +1,5 @@
 
-/*
+
 class ExtendedClock extends Clock {
   constructor({template, precision = 1000}) {
     super({template});
@@ -13,4 +13,3 @@ class ExtendedClock extends Clock {
 let exClock = new ExtendedClock({template: 'h:m:s', precision: 5000});
 exClock.start();
 
-*/
