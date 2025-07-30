@@ -2898,7 +2898,7 @@ const binaryArrayToNumber = arr => {
 };
 alert(binaryArrayToNumber([0,0,0,1]))
 
-*/
+
 ///
 
 var number=function(array){
@@ -2911,3 +2911,20 @@ var number=function(array){
     return i + ": " + item;
   })
 }
+
+
+///
+
+let name, admin;
+name = 'Джон';
+admin = name;
+alert(admin);
+
+///
+*/
+let userName = prompt('Enter your name','');
+alert(`Hello ${userName}`);
+
+let a = prompt("5","");
+let b = prompt("8","");
+alert (+a + +b);
