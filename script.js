@@ -2921,10 +2921,71 @@ admin = name;
 alert(admin);
 
 ///
-*/
+
 let userName = prompt('Enter your name','');
 alert(`Hello ${userName}`);
 
 let a = prompt("5","");
 let b = prompt("8","");
 alert (+a + +b);
+
+
+let userName = prompt ("Как Вас зовут?", "Вася");
+let isUserBoss = confirm (`${userName}  главный?`);
+alert(isUserBoss);
+
+let jsTruthNameAnswer = prompt("Какое официальное название JavaScript?");
+if (jsTruthNameAnswer == "ECMAScript") {
+  alert('Верно')
+} else {
+  alert("Неверно")
+}
+
+let userNumber = +prompt("Введите любое число");
+alert(userNumber);
+if (isNaN(userNumber)) {
+  userNumber = +prompt("Введите число, пожалуйста");
+} else if (userNumber > 0) {
+  alert("1. Вы ввели ввели положительное число!");
+} else if (userNumber < 0) {
+   alert("-1. Вы ввели ввели отрицательное число!");
+ }  else if (userNumber === 0) {
+   alert("0. Вы ввели ввели ноль!");
+ } else {
+   alert ('Что-то пошло не так');
+ }
+ 
+ let a=4,b=2;
+
+ let result= (a+b)>4 ? ('много'):('мало');
+ 
+
+alert(result);
+
+let message = (login == 'Сотрудник') ? 'Привет' : 
+  (login == 'Директор') ?  'Здравствуйте' :
+  (login == '') ? 'Нет логина':
+  '';
+  
+  
+  let age = prompt('How is your old');
+  if (!(age>=14 && age <=90)){
+    alert('не от 14 до 90')
+  };
+  */
+  let currentUserName = prompt("Введите логин");
+  if (currentUserName == "Админ"){
+    
+    let userPass = prompt("Введите пароль");
+    if(userPass == "Я Главный") {
+      alert("Здравствуйте!");
+    } else if (userPass != null && userPass != undefined) {
+      alert("Неверный пароль");
+    } else {
+      alert ("Отменено!");
+    }
+  } else if (currentUserName != null && currentUserName != undefined) {
+  alert("Я Вас не знаю!");
+} else {
+  alert("Отменено!");
+}
